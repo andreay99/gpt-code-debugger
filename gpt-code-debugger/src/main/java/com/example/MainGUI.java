@@ -1,5 +1,7 @@
 package com.example;
 
+import com.example.DebuggerUtility;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -22,12 +24,12 @@ public class MainGUI extends Application {
         TextArea resultArea = new TextArea();
         resultArea.setEditable(false);
 
-        // Handle Debug Button Click
+        // Handle the Debug Button Click
         debugButton.setOnAction(event -> {
             String codeSnippet = codeInputArea.getText().trim();
             if (!codeSnippet.isEmpty()) {
                 try {
-                    String debugResult = Main.debugCodeSnippet(codeSnippet);
+                    String debugResult = DebuggerUtility.debugCodeSnippet(codeSnippet);
                     resultArea.setText(debugResult);
                 } catch (Exception e) {
                     resultArea.setText("Error: " + e.getMessage());
