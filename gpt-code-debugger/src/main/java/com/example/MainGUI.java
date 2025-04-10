@@ -18,15 +18,15 @@ public class MainGUI extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("GPT Code Debugger");
 
-        // Create UI elements
+       
         Label instructionLabel = new Label("Enter your code snippet below to debug:");
-        // Assign a CSS style class for external styling.
+        // Assigns a CSS style class for external styling.
         instructionLabel.getStyleClass().add("instruction-label");
 
         TextArea codeInputArea = new TextArea();
         codeInputArea.setPromptText("Paste your code here...");
         codeInputArea.setWrapText(true);
-        // Use a CSS style class for the code input area.
+        // Uses  CSS style class for the code input area.
         codeInputArea.getStyleClass().add("code-input");
 
         Button debugButton = new Button("Debug Code");
@@ -35,10 +35,10 @@ public class MainGUI extends Application {
         TextArea resultArea = new TextArea();
         resultArea.setEditable(false);
         resultArea.setWrapText(true);
-        // Use a CSS style class for the result area.
+        // Usea CSS style class for the result area.
         resultArea.getStyleClass().add("result-area");
 
-        // Debug button action: for demonstration, simply echoes the code.
+        // Debug button action: for demonstration, simply copies the code.
         debugButton.setOnAction(event -> {
             String codeSnippet = codeInputArea.getText().trim();
             if (!codeSnippet.isEmpty()) {
@@ -53,14 +53,14 @@ public class MainGUI extends Application {
             }
         });
 
-        // Arrange components in a VBox with spacing and padding.
+        // Arranges components in a VBox with spacing and padding.
         VBox layout = new VBox(20, instructionLabel, codeInputArea, debugButton, resultArea);
         layout.setPadding(new Insets(25));
         VBox.setVgrow(codeInputArea, Priority.ALWAYS);
         VBox.setVgrow(resultArea, Priority.ALWAYS);
 
         Scene scene = new Scene(layout, 1200, 900);
-        // Load the external CSS stylesheet from the resources folder.
+        // Loads the external CSS stylesheet from the resources folder.
         URL cssUrl = getClass().getResource("/style.css");
         System.out.println("CSS URL: " + cssUrl);
         if (cssUrl != null) {
